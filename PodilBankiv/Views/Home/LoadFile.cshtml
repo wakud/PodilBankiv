@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PodilBankiv.Models.Banks>
+
+@{
+    ViewData["Title"] = "Список банків";
+}
+
+<h1>Список Банків</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Дата</th>
+            <th>Код банку</th>
+            <th>Назва банку</th>
+            <th>Кількість</th>
+            <th>Сума</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bank)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kil)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Suma)
+                </td>
+                <td>
+                    @Html.ActionLink("Вигрузити", "UnloadFile", new { kodBank = item.Kb }) 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

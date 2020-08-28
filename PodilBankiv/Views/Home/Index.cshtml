@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Поділ банків";
+}
+
+@using (Html.BeginForm("LoadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary()
+    <div class="container">
+        <div class="row">
+            <div class="col-3">Виберіть файл з банку *_ES.dbf</div>
+            <div class="col-5"><input id="file-loadES" type="file" name="formFileES" /></div>
+            <div class="w-100"></div>
+            <div class="col-3">Виберіть файл з банку *_E.dbf</div>
+            <div class="col-5"><input id="file-loadE" type="file" name="formFileE" /></div>
+            <br />
+        </div>
+    </div>
+    <br />
+    <input id="Submit1" type="submit" value="Завантажити" />
+        @if (ViewBag.error != null)
+        {
+            @if(ViewBag.error == "BadFile")
+            {
+                <script>
+                    setTimeout(() => alert("Не вірно вибрані файли!"), 500);
+                </script>
+            }
+        }
+    <label></label>
+}
+

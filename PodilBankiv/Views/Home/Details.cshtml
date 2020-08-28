@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PodilBankiv.Models.Abons>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numbpers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Suma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poppok)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kb)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numbpers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poppok)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kb)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
