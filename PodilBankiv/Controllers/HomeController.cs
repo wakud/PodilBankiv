@@ -141,7 +141,7 @@ namespace PodilBankiv.Controllers
             ba.banks = ES;
             ba.abons = E;
             string userKey = ((Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds).ToString();
-            GavnoVopros.UserLoaded[userKey] = ba;
+            UserLoad.UserLoaded[userKey] = ba;
             HttpContext.Response.Cookies.Append("userKey", userKey);
             return View(ES);
         }
@@ -149,7 +149,7 @@ namespace PodilBankiv.Controllers
         public FileResult UnloadFile(int kodBank)
         {
             string userKey = HttpContext.Request.Cookies["userKey"];
-            UploadedBankAbons ba = GavnoVopros.UserLoaded[userKey];
+            UploadedBankAbons ba = UserLoad.UserLoaded[userKey];
             Banks curBank = new Banks();
             foreach(Banks bank in ba.banks)
             {
